@@ -1,407 +1,495 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Riny Yadav — UI/UX Designer & AI Product Manager</title>
-<meta name="description" content="Riny Yadav — UI/UX Designer & AI Product Manager. I design AI products people actually understand: Voomo, Listen2it & Avatario.">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Riny Yadav — UI/UX Designer &amp; AI Product Manager</title>
+<meta name="description" content="Riny Yadav is a UI/UX Designer and AI Product Manager working on AI voice, avatar and video products — Listen2It, Avatario and Voomo.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Fraunces:ital,wght@0,400;0,600;1,500;1,600&family=Manrope:wght@400;600;700;800&family=Caveat:wght@600&family=Special+Elite&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/case.css">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
 <style>
-/* ===== index-specific, layered on case.css tokens ===== */
-section{padding:30px 0}
-.sec-card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);padding:58px 56px}
-.kicker{font-size:.78rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--terra);margin-bottom:12px}
-.sec-title{font-size:clamp(1.9rem,4.2vw,2.8rem);margin-bottom:16px}
-.sec-title .alt{color:var(--ink2);font-style:italic;font-weight:500}
-.hand{font-family:'Caveat',cursive;color:var(--ink2)}
+:root{
+  --blush:#FDF2F8; --lilac:#F6F1FF; --sky:#EEF4FF; --paper:#FFFFFF;
+  --ink:#2A2340; --body:#5B5470; --muted:#8A83A0;
+  --pink:#E3488C; --violet:#8257E6; --blue:#5B8DEF;
+  --grad:linear-gradient(100deg,#7C4DFF 0%,#E3488C 100%);
+  --line:rgba(130,87,230,.14);
+  --shadow-sm:0 2px 10px rgba(90,60,150,.07);
+  --shadow-md:0 14px 36px rgba(90,60,150,.12);
+  --shadow-lg:0 26px 60px rgba(90,60,150,.17);
+  --r-lg:26px; --r-md:18px; --r-pill:999px;
+  --maxw:1180px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth; scroll-padding-top:104px}
+body{
+  margin:0; background:var(--paper); color:var(--body);
+  font-family:'Plus Jakarta Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
+  font-size:17px; line-height:1.65; -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%; display:block}
+a{color:inherit}
+h1,h2,h3,h4{color:var(--ink); margin:0; line-height:1.14; letter-spacing:-.022em; font-weight:800}
+h1{font-size:clamp(2.1rem,4.6vw,3.5rem)}
+h2{font-size:clamp(1.8rem,3.4vw,2.6rem)}
+h3{font-size:1.2rem; letter-spacing:-.015em}
+p{margin:0 0 1rem}
+.wrap{max-width:var(--maxw); margin:0 auto; padding:0 26px}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+:focus-visible{outline:3px solid var(--violet); outline-offset:3px; border-radius:6px}
 
-/* hero — fan layout */
-h1,h2,h3{font-family:'Fredoka',sans-serif;font-weight:600}
-.sec-title .alt{font-family:'Fraunces',serif}
-.hero{padding:170px 0 50px;position:relative;
-  background-image:radial-gradient(rgba(7,90,76,.10) 1.4px,transparent 1.4px);
-  background-size:24px 24px}
-.hero-head{position:relative;max-width:1060px;margin:0 auto;padding:0 24px}
-.hero-head h1{font-size:clamp(2.9rem,7vw,5.4rem);line-height:1.04;color:var(--ink);margin-bottom:24px;letter-spacing:-.01em;animation:rise .8s cubic-bezier(.2,.8,.3,1) backwards}
-.hero-sub{font-size:1.18rem;line-height:1.85;color:var(--txt);max-width:660px;animation:rise .8s .12s cubic-bezier(.2,.8,.3,1) backwards}
-.hero-sub b{color:var(--ink)}
-.chip-inline{display:inline-flex;align-items:center;gap:6px;background:#fffdf7;border:1.5px solid var(--line);border-radius:99px;padding:3px 13px;font-weight:800;font-size:.92rem;color:var(--ink);vertical-align:-2px;box-shadow:0 2px 6px rgba(56,46,22,.08);transition:.25s}
-.chip-inline:hover{transform:translateY(-2px) rotate(-2deg);border-color:var(--sun)}
-.chip-inline.dark{background:var(--ink);color:#fffdf7;border-color:var(--ink)}
-@keyframes rise{from{opacity:0;transform:translateY(34px)}to{opacity:1;transform:none}}
-.sticker-wrap{position:absolute;top:-44px;right:40px;text-align:center;animation:rise .8s .3s backwards}
-.badge-sticker{display:inline-block;background:#fffdf7;border:2px solid var(--sun);color:var(--ink);font-family:'Caveat';font-size:1.3rem;font-weight:600;padding:6px 18px;border-radius:99px;transform:rotate(6deg);box-shadow:0 6px 14px rgba(56,46,22,.12);animation:wig 6s ease-in-out infinite}
-@keyframes wig{0%,100%{transform:rotate(6deg)}50%{transform:rotate(2deg) translateY(-4px)}}
-.sticker-arrow{display:block;margin:2px auto 0;transform:rotate(14deg)}
+/* ---------- nav ---------- */
+.nav{position:sticky; top:0; z-index:60; padding:14px 0; background:rgba(255,255,255,.72); backdrop-filter:blur(14px); border-bottom:1px solid rgba(130,87,230,.08)}
+.nav-in{display:flex; align-items:center; gap:18px}
+.brand{display:flex; align-items:center; gap:11px; text-decoration:none; font-weight:800; color:var(--ink); letter-spacing:-.02em}
+.mono{width:40px;height:40px;border-radius:50%;background:var(--grad);color:#fff;display:grid;place-items:center;font-size:.82rem;font-weight:800;letter-spacing:.02em;box-shadow:var(--shadow-sm)}
+.nav-links{margin-left:auto; display:flex; align-items:center; gap:30px}
+.nav-links a{text-decoration:none; color:var(--body); font-weight:600; font-size:.97rem; transition:color .18s}
+.nav-links a:hover{color:var(--violet)}
+.btn{display:inline-flex; align-items:center; justify-content:center; gap:9px; border-radius:var(--r-pill); font-weight:700; font-size:.97rem; text-decoration:none; padding:13px 26px; border:1px solid transparent; cursor:pointer; font-family:inherit; transition:transform .18s, box-shadow .18s, background .18s}
+.btn-grad{background:var(--grad); color:#fff; box-shadow:0 8px 22px rgba(160,70,190,.3)}
+.btn-grad:hover{transform:translateY(-2px); box-shadow:0 14px 30px rgba(160,70,190,.38)}
+.btn-ghost{background:#fff; color:var(--ink); border-color:var(--line); box-shadow:var(--shadow-sm)}
+.btn-ghost:hover{transform:translateY(-2px); box-shadow:var(--shadow-md)}
+.nav-toggle{display:none; margin-left:auto; background:#fff; border:1px solid var(--line); border-radius:12px; width:44px; height:44px; cursor:pointer}
+.nav-toggle span{display:block; width:18px; height:2px; background:var(--ink); margin:4px auto; border-radius:2px}
 
-/* the fan of overlapping tilted cards */
-.fan{display:flex;justify-content:center;align-items:center;margin-top:64px;padding:0 24px}
-.fcard{--tilt:0deg;width:300px;min-height:380px;border-radius:22px;padding:28px 26px;box-shadow:0 18px 38px rgba(56,46,22,.16);position:relative;display:flex;flex-direction:column;text-decoration:none;color:var(--ink);border:1px solid rgba(0,0,0,.05);transform:rotate(var(--tilt));transition:transform .45s cubic-bezier(.2,.9,.3,1.18),box-shadow .35s;animation:fanin .85s cubic-bezier(.2,.8,.3,1) backwards}
-@keyframes fanin{from{opacity:0;transform:translateY(80px) rotate(calc(var(--tilt)*2.4))}to{opacity:1;transform:translateY(0) rotate(var(--tilt))}}
-.fcard+.fcard{margin-left:-36px}
-.fcard:hover{transform:rotate(0) translateY(-18px) scale(1.04);box-shadow:0 30px 56px rgba(56,46,22,.24);z-index:30}
-.fcard h3{font-size:1.45rem;margin-bottom:10px}
-.fcard p{font-size:.95rem;line-height:1.6;color:rgba(28,52,46,.85);margin-bottom:18px}
-.fcard .fimg{width:100%;aspect-ratio:16/10;object-fit:cover;object-position:top;border-radius:12px;border:3px solid #fffdf7;box-shadow:0 6px 14px rgba(56,46,22,.14);margin-bottom:auto}
-.fbtn{align-self:flex-start;margin-top:18px;background:#123c31;color:#fffdf7;font-weight:800;font-size:.85rem;padding:11px 20px;border-radius:99px;box-shadow:0 4px 10px rgba(0,0,0,.18);transition:.25s}
-.fcard:hover .fbtn{background:var(--ink2);transform:rotate(-2deg)}
-.c-orange{background:#f8c89a;--tilt:-6deg;z-index:1;animation-delay:.15s}
-.c-photo{background:#fffdf7;--tilt:4deg;z-index:2;width:280px;min-height:360px;padding:12px;animation-delay:.25s;align-self:center}
-.c-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 22%;border-radius:14px;flex:1}
-.c-lav{background:#d9cdf8;--tilt:-4deg;z-index:3;animation-delay:.35s}
-.c-blue{background:#bcdcf5;--tilt:5.5deg;z-index:4;animation-delay:.45s}
+/* ---------- hero ---------- */
+.hero{position:relative; overflow:hidden; padding:84px 0 150px;
+  background:
+    radial-gradient(1100px 520px at 12% 8%, #F7E6FF 0%, rgba(247,230,255,0) 62%),
+    radial-gradient(900px 480px at 88% 18%, #FFE2EE 0%, rgba(255,226,238,0) 60%),
+    radial-gradient(900px 520px at 60% 96%, #DCEBFF 0%, rgba(220,235,255,0) 62%),
+    linear-gradient(170deg,#FBF4FF 0%,#FDF3F8 48%,#EFF5FF 100%);
+}
+.hero-in{display:grid; grid-template-columns:1.04fr .96fr; gap:58px; align-items:center; position:relative; z-index:2}
+.badge{display:inline-flex; align-items:center; gap:9px; background:rgba(255,255,255,.85); border:1px solid rgba(255,255,255,.9); color:var(--ink); font-weight:600; font-size:.86rem; padding:8px 17px; border-radius:var(--r-pill); box-shadow:var(--shadow-sm); margin-bottom:22px}
+.dot{width:8px;height:8px;border-radius:50%;background:#2BC48A; box-shadow:0 0 0 4px rgba(43,196,138,.18)}
+.kicker{color:var(--pink); font-weight:700; font-size:1.02rem; margin-bottom:6px}
+.hero h1{margin-bottom:10px}
+.role{font-size:clamp(1.12rem,2vw,1.42rem); font-weight:700; color:var(--ink); margin-bottom:18px; letter-spacing:-.015em}
+.role em{font-style:normal; background:var(--grad); -webkit-background-clip:text; background-clip:text; color:transparent}
+.hero p.lead{max-width:49ch; margin-bottom:30px}
+.hero-cta{display:flex; flex-wrap:wrap; gap:13px}
+.hero-art{position:relative}
+.hero-art::before{content:""; position:absolute; inset:-9% -6% -9% -12%; border-radius:50%;
+  background:linear-gradient(135deg, rgba(167,139,250,.55), rgba(244,164,208,.5) 55%, rgba(147,197,253,.55)); filter:blur(14px)}
+.frame{position:relative; border-radius:30px; overflow:hidden; border:7px solid #fff; box-shadow:var(--shadow-lg); aspect-ratio:4/3}
+.frame img{width:100%; height:100%; object-fit:cover; object-position:50% 22%}
+.sticker{position:absolute; z-index:1; opacity:.85; pointer-events:none}
+.wave{position:absolute; left:0; right:0; bottom:-1px; z-index:1; width:100%}
 
-/* about */
-.about-row{display:grid;grid-template-columns:280px 1fr;gap:44px;align-items:center;margin-top:24px}
-.about-row img{width:100%;border-radius:16px;border:1px solid var(--line);box-shadow:0 12px 26px rgba(56,46,22,.12);transform:rotate(-1.5deg);transition:transform .4s}
-.about-row .ph:hover img{transform:rotate(0)}
-.about-row p{margin-bottom:16px;font-size:1.03rem;max-width:620px}
-.about-row b{color:var(--ink)}
+/* ---------- sections ---------- */
+section{padding:92px 0}
+.sec-head{text-align:center; max-width:640px; margin:0 auto 54px}
+.eyebrow{color:var(--pink); font-weight:700; font-size:.98rem; margin-bottom:8px}
+.rule{width:76px; height:4px; border-radius:4px; background:var(--grad); margin:16px auto 0}
+.tint{background:linear-gradient(180deg,#FFFFFF 0%,#FBF5FF 40%,#F4F7FF 100%)}
 
-/* timeline */
-.timeline{margin-top:28px;position:relative;padding-left:140px}
-.timeline::before{content:"";position:absolute;left:100px;top:8px;bottom:8px;width:2px;background:var(--line)}
-.titem{position:relative;padding:30px 0 40px}
-.titem::before{content:"";position:absolute;left:-46px;top:44px;width:11px;height:11px;border-radius:50%;background:var(--ink2);box-shadow:0 0 0 5px #e7efe6}
-.tyear{position:absolute;left:-140px;top:30px;font-family:'Fraunces';font-weight:700;font-size:1.8rem;color:#d6cbb4;width:82px;text-align:right;line-height:1.1}
-.titem h3{font-size:1.55rem;margin-bottom:8px}
-.titem h3 a{color:var(--ink);text-decoration:none;transition:.25s}
-.titem h3 a:hover{color:var(--ink2)}
-.titem .tdesc{max-width:620px;margin-bottom:20px;font-size:1rem}
-.shot{display:block;border-radius:18px;overflow:hidden;border:1px solid var(--line);box-shadow:0 14px 32px rgba(56,46,22,.1);transition:transform .4s,box-shadow .4s}
-.shot img{width:100%;display:block;aspect-ratio:16/9;object-fit:cover;object-position:top;transition:transform .6s}
-.shot:hover{transform:translateY(-5px);box-shadow:0 22px 44px rgba(56,46,22,.16)}
-.shot:hover img{transform:scale(1.025)}
-.tmeta{display:flex;gap:10px;align-items:center;margin-top:16px;flex-wrap:wrap}
-.tagp{font-size:.76rem;font-weight:800;padding:6px 13px;border-radius:99px;background:#f0e9d8;color:var(--ink)}
-.tlinks{margin-left:auto;display:flex;gap:10px;flex-wrap:wrap}
-.tlink{text-decoration:none;font-weight:800;font-size:.86rem;color:var(--ink);border:2px solid var(--ink);padding:9px 18px;border-radius:99px;transition:.25s;white-space:nowrap}
-.tlink:hover{background:var(--ink);color:#fffdf7}
-.tlink.alt{border-color:var(--line);color:var(--ink2);background:#fbf7ee}
-.tlink.alt:hover{border-color:var(--ink2);background:var(--ink2);color:#fffdf7}
-.mini-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
-.mini-grid .shot img{aspect-ratio:16/10}
+/* ---------- about ---------- */
+.about-grid{display:grid; grid-template-columns:1.25fr .75fr; gap:28px; align-items:start}
+.card{background:#fff; border:1px solid var(--line); border-radius:var(--r-lg); box-shadow:var(--shadow-sm)}
+.about-card{padding:38px 40px}
+.about-card h3{margin-bottom:16px; font-size:1.42rem}
+.about-card p:last-child{margin-bottom:0}
+.hl{color:var(--violet); font-weight:700}
+.hl-pink{color:var(--pink); font-weight:700}
+.caps{display:grid; gap:14px}
+.cap{display:flex; gap:14px; padding:18px 20px; background:#fff; border:1px solid var(--line); border-radius:var(--r-md); box-shadow:var(--shadow-sm)}
+.cap-ic{flex:none; width:40px; height:40px; border-radius:12px; display:grid; place-items:center; background:linear-gradient(140deg,#F3EBFF,#FFE8F3); color:var(--violet)}
+.cap b{display:block; color:var(--ink); font-size:1rem; margin-bottom:2px}
+.cap span{font-size:.9rem; color:var(--muted); line-height:1.5}
 
-/* process */
-.proc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:30px}
-.pstep{background:#fbf7ee;border:1px solid var(--line);border-radius:18px;padding:26px 22px;position:relative;transition:.3s}
-.pstep:hover{transform:translateY(-6px);border-color:var(--ink2)}
-.pstep .pnum{font-family:'Fraunces';font-style:italic;font-size:2rem;color:var(--terra);line-height:1;margin-bottom:12px}
-.pstep h3{font-size:1.05rem;margin-bottom:8px}
-.pstep p{font-size:.86rem}
-.proc-note{margin-top:22px;font-size:.95rem;color:var(--muted);max-width:640px}
-.proc-note b{color:var(--ink)}
+/* ---------- work ---------- */
+.studies{display:grid; gap:26px}
+.study{display:grid; grid-template-columns:minmax(0,1.02fr) minmax(0,1fr); background:#fff; border:1px solid var(--line); border-radius:var(--r-lg); overflow:hidden; box-shadow:var(--shadow-sm); transition:box-shadow .25s, transform .25s}
+.study:hover{box-shadow:var(--shadow-md); transform:translateY(-3px)}
+.study:nth-child(even) .study-media{order:2}
+.study-media{position:relative; background:linear-gradient(150deg,#F7F2FF 0%,#EEF4FF 100%); display:grid; place-items:center; padding:28px; min-height:280px; overflow:hidden}
+.study-media img{width:100%; height:auto; max-height:400px; object-fit:contain; border-radius:12px; box-shadow:0 12px 30px rgba(90,60,150,.18)}
+.chip{position:absolute; top:16px; right:16px; background:rgba(255,255,255,.94); color:var(--ink); font-size:.78rem; font-weight:700; padding:7px 14px; border-radius:var(--r-pill); box-shadow:var(--shadow-sm); backdrop-filter:blur(6px)}
+.study-body{padding:34px 36px; display:flex; flex-direction:column}
+.study-body h3{font-size:1.32rem; margin-bottom:4px}
+.where{font-size:.88rem; color:var(--muted); font-weight:600; margin-bottom:14px}
+.study-body p{font-size:.97rem; margin-bottom:14px}
+.tags{display:flex; flex-wrap:wrap; gap:8px; margin:2px 0 22px}
+.tag{font-size:.79rem; font-weight:600; color:var(--violet); background:#F5F0FF; border:1px solid rgba(130,87,230,.14); padding:6px 13px; border-radius:var(--r-pill)}
+.study .btn{align-self:flex-start; margin-top:auto; padding:12px 24px; font-size:.93rem}
+.arrow{width:15px;height:15px;flex:none}
 
-/* writing */
-.wgrid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:28px}
-.wcard{background:#fbf7ee;border:1px solid var(--line);border-radius:18px;padding:26px;text-decoration:none;color:var(--txt);transition:.3s;display:block}
-.wcard:hover{transform:translateY(-5px);border-color:var(--ink2);box-shadow:0 14px 30px rgba(56,46,22,.1)}
-.wcard .wtag{font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.12em;color:var(--terra);margin-bottom:10px}
-.wcard h3{font-size:1.18rem;margin-bottom:8px}
-.wcard p{font-size:.9rem;margin-bottom:12px}
-.wcard .go{font-weight:800;font-size:.82rem;color:var(--ink2)}
+.more-head{margin:70px 0 26px; display:flex; align-items:baseline; gap:14px}
+.more-head h3{font-size:1.18rem}
+.more-head .line{flex:1; height:1px; background:var(--line)}
+.more{display:grid; grid-template-columns:repeat(3,1fr); gap:22px}
+.mini{background:#fff; border:1px solid var(--line); border-radius:var(--r-lg); overflow:hidden; box-shadow:var(--shadow-sm); display:flex; flex-direction:column; transition:box-shadow .25s, transform .25s; text-decoration:none}
+.mini:hover{box-shadow:var(--shadow-md); transform:translateY(-3px)}
+.mini-media{aspect-ratio:16/10; overflow:hidden; background:#F3F0FA; position:relative}
+.mini-media img{width:100%;height:100%;object-fit:cover;object-position:top center}
+.mini-body{padding:20px 22px 24px}
+.mini-body h4{font-size:1.03rem; color:var(--ink); font-weight:700; margin:0 0 6px}
+.mini-body p{font-size:.9rem; margin:0 0 12px; color:var(--body)}
+.golink{font-size:.88rem; font-weight:700; color:var(--violet); display:inline-flex; align-items:center; gap:7px}
 
-/* letter */
-.letter-wrap{display:grid;grid-template-columns:1fr auto;gap:30px;align-items:center;margin-top:30px}
-.letter{background:#fffef9;border:1px solid var(--line);border-top:5px solid var(--sun);border-radius:16px;padding:36px 40px;font-family:'Special Elite',monospace;color:#4a4438;font-size:.95rem;line-height:1.9;transform:rotate(-1deg);box-shadow:0 16px 34px rgba(56,46,22,.1);transition:transform .4s;max-width:620px;position:relative}
-.letter:hover{transform:rotate(0)}
-.letter .doodle{position:absolute;bottom:16px;right:24px;font-family:'Caveat';font-size:1.4rem;color:var(--terra);transform:rotate(-4deg)}
-.letter-side{font-family:'Caveat';font-size:1.6rem;color:var(--ink);transform:rotate(3deg);text-align:center}
-.letter-side .arr{font-size:2rem;display:block}
+/* ---------- skills ---------- */
+.skills{display:grid; grid-template-columns:repeat(3,1fr); gap:22px}
+.skillcard{padding:28px 28px 30px}
+.skillcard h4{color:var(--ink); font-size:1.05rem; margin:0 0 16px; font-weight:700}
+.pills{display:flex; flex-wrap:wrap; gap:9px}
+.pill{font-size:.88rem; font-weight:600; color:var(--ink); background:linear-gradient(140deg,#FBF6FF,#F2F7FF); border:1px solid var(--line); padding:8px 15px; border-radius:var(--r-pill)}
 
-/* contact */
-.connect-btns{display:flex;gap:14px;flex-wrap:wrap;margin:26px 0 26px}
-.note{color:var(--muted);font-size:.95rem}
-.toast{position:fixed;bottom:30px;left:50%;transform:translateX(-50%) translateY(180px);background:var(--ink);color:#fffdf7;font-weight:800;padding:14px 26px;border-radius:99px;box-shadow:0 14px 30px rgba(0,0,0,.25);transition:transform .4s cubic-bezier(.2,.9,.3,1.2);z-index:300}
-.toast.show{transform:translateX(-50%) translateY(0)}
+/* ---------- contact ---------- */
+.contact-grid{display:grid; grid-template-columns:1.1fr .9fr; gap:26px; align-items:start}
+.form{padding:34px 36px}
+.field{margin-bottom:16px}
+label{display:block; font-size:.88rem; font-weight:700; color:var(--ink); margin-bottom:7px}
+input,textarea{width:100%; font-family:inherit; font-size:.97rem; color:var(--ink); background:#FCFAFF; border:1px solid var(--line); border-radius:14px; padding:13px 16px; transition:border-color .18s, box-shadow .18s}
+input:focus,textarea:focus{outline:none; border-color:var(--violet); box-shadow:0 0 0 4px rgba(130,87,230,.13)}
+textarea{min-height:132px; resize:vertical}
+.info{padding:32px 34px}
+.info h4{color:var(--ink); font-size:1.08rem; margin:0 0 20px; font-weight:700}
+.row{display:flex; gap:14px; align-items:flex-start; margin-bottom:18px}
+.row .cap-ic{width:38px;height:38px;border-radius:11px}
+.row b{display:block; color:var(--ink); font-size:.93rem}
+.row a,.row span{font-size:.93rem; color:var(--body); text-decoration:none}
+.row a:hover{color:var(--violet)}
+.socials{display:flex; flex-wrap:wrap; gap:10px; margin-top:22px; padding-top:22px; border-top:1px solid var(--line)}
+.socials a{font-size:.88rem; font-weight:600; color:var(--ink); background:linear-gradient(140deg,#FBF6FF,#F2F7FF); border:1px solid var(--line); padding:9px 16px; border-radius:var(--r-pill); text-decoration:none; transition:transform .18s, box-shadow .18s}
+.socials a:hover{transform:translateY(-2px); box-shadow:var(--shadow-sm); color:var(--violet)}
+.avail{margin-top:22px; padding:16px 18px; border-radius:var(--r-md); background:linear-gradient(135deg,#F4EDFF,#FFEDF5); border:1px solid var(--line)}
+.avail b{color:var(--ink); font-size:.93rem; display:flex; align-items:center; gap:9px}
+.avail span{font-size:.88rem; color:var(--body)}
 
-/* footer */
-.footer-card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);padding:48px 56px;margin:30px 0 14px}
-.fgrid{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:36px}
-.fgrid h4{font-family:'Fraunces';color:var(--ink);margin-bottom:14px;font-size:1.05rem}
-.fgrid a{display:block;color:var(--txt);text-decoration:none;font-weight:600;font-size:.92rem;padding:4px 0;transition:.2s}
-.fgrid a:hover{color:var(--ink2);transform:translateX(4px)}
-.copyright{text-align:center;color:var(--muted);font-size:.85rem;padding:14px 0 36px}
+/* ---------- footer ---------- */
+footer{background:linear-gradient(180deg,#F7F1FF,#F1F5FF); border-top:1px solid var(--line); padding:36px 0}
+.foot{display:flex; align-items:center; gap:20px; flex-wrap:wrap}
+.foot-links{margin-left:auto; display:flex; gap:24px; flex-wrap:wrap}
+.foot-links a{text-decoration:none; font-weight:600; font-size:.93rem; color:var(--body)}
+.foot-links a:hover{color:var(--violet)}
+.copy{width:100%; font-size:.86rem; color:var(--muted); border-top:1px solid var(--line); margin-top:22px; padding-top:18px}
 
-.menu-btn{display:none;background:none;border:none;font-size:1.2rem;color:var(--ink);cursor:pointer;padding:4px 8px}
-.reveal.d1{transition-delay:.1s}.reveal.d2{transition-delay:.2s}.reveal.d3{transition-delay:.3s}
-
-@media(max-width:920px){
-  .menu-btn{display:block}
-  .pills{position:fixed;top:80px;left:50%;transform:translateX(-50%);flex-direction:column;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:14px;box-shadow:var(--shadow);width:min(300px,86vw);text-align:center;display:none}
-  .pills.open{display:flex}
-  .say-hi{display:none}
-  .sec-card,.footer-card{padding:42px 26px}
-  .hero{padding-top:140px}
-  .sticker-wrap{position:static;text-align:left;margin-bottom:14px}
-  .sticker-arrow{display:none}
-  .fan{flex-direction:column;align-items:center;gap:26px}
-  .fcard+.fcard{margin-left:0}
-  .fcard{width:min(340px,88vw)}
-  .c-photo{order:-1}
-  .proc-grid,.wgrid{grid-template-columns:1fr}
-  .about-row{grid-template-columns:1fr}
-  .timeline{padding-left:0}
-  .timeline::before,.titem::before{display:none}
-  .tyear{position:static;text-align:left;margin-bottom:6px;width:auto}
-  .letter-wrap{grid-template-columns:1fr}
-  .letter-side{display:none}
-  .fgrid{grid-template-columns:1fr;gap:26px}
-  .mini-grid{grid-template-columns:1fr}
+/* ---------- responsive ---------- */
+@media (max-width:980px){
+  .hero{padding:60px 0 120px}
+  .hero-in{grid-template-columns:1fr; gap:40px}
+  .hero-art{order:-1; max-width:460px}
+  .about-grid,.contact-grid{grid-template-columns:1fr}
+  .study,.study:nth-child(even) .study-media{grid-template-columns:1fr; order:0}
+  .study-media{min-height:0; padding:22px}
+  .more,.skills{grid-template-columns:1fr 1fr}
+  .nav-links{position:absolute; top:72px; left:16px; right:16px; flex-direction:column; align-items:stretch; gap:4px; background:#fff; border:1px solid var(--line); border-radius:var(--r-md); padding:12px; box-shadow:var(--shadow-md); display:none}
+  .nav-links.open{display:flex}
+  .nav-links a{padding:11px 12px; border-radius:10px}
+  .nav-links .btn{margin-top:6px}
+  .nav-toggle{display:block}
+}
+@media (max-width:620px){
+  body{font-size:16px}
+  section{padding:66px 0}
+  .more,.skills{grid-template-columns:1fr}
+  .about-card,.study-body,.form,.info{padding:26px 22px}
+  .hero-cta .btn{flex:1 1 100%}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important; transition:none!important; scroll-behavior:auto!important}
 }
 </style>
 </head>
 <body>
 
-<nav class="navbar">
-  <div class="nav-in">
-    <a class="brand" href="#home"><img class="face" src="assets/profile.jpg" alt="Riny">Riny Yadav</a>
-    <ul class="pills" id="pills">
-      <li><a href="#home" class="active">Home</a></li>
-      <li><a href="#play">Play</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-    <a class="say-hi" href="mailto:workwithriny@gmail.com">👋 Say Hello</a>
-    <button class="menu-btn" id="menuBtn" aria-label="Menu">☰</button>
-  </div>
-</nav>
-
-<!-- HOME -->
-<header class="hero" id="home">
-  <div class="hero-head">
-    <div class="sticker-wrap">
-      <span class="badge-sticker">open to work ✦</span>
-      <svg class="sticker-arrow" width="46" height="40" viewBox="0 0 46 40" fill="none"><path d="M42 4 C 30 24, 18 30, 6 32 M6 32 l 9 -7 M6 32 l 11 3" stroke="#0f7a63" stroke-width="2.4" stroke-linecap="round"/></svg>
-    </div>
-    <h1>Hi, I'm Riny.<br>UI/UX Designer & AI Product Manager.</h1>
-    <p class="hero-sub"><b>I design AI products and own the roadmap behind them.</b><br>
-    Shipping video, voice & avatars at <a class="chip-inline" href="case-listen2it.html">🎧 Listen2it</a> by day, building with <span class="chip-inline dark">🤖 AI agents</span> by night.</p>
-  </div>
-
-  <div class="fan">
-    <a class="fcard c-orange" href="#play">
-      <h3>Recent work</h3>
-      <p>See how I turn messy AI problems into shipped, breathing products.</p>
-      <img class="fimg" src="assets/voomo-platform.jpg" alt="Voomo platform design">
-      <span class="fbtn">Read Case Studies</span>
-    </a>
-    <div class="fcard c-photo" aria-label="Riny Yadav">
-      <img src="assets/profile.jpg" alt="Riny Yadav — UI/UX Designer">
-    </div>
-    <a class="fcard c-lav" href="case-voomo.html">
-      <h3>AI products</h3>
-      <p>I've designed 3 live AI products end to end — video generation, text-to-speech and real-time avatars.</p>
-      <span class="fbtn">What I've Shipped</span>
-    </a>
-    <a class="fcard c-blue" href="https://www.behance.net/rinyyadav" target="_blank" rel="noopener">
-      <h3>Playground</h3>
-      <p>Mobile UI concepts, visual experiments and the things I make purely for fun.</p>
-      <span class="fbtn">Explore My Behance</span>
-    </a>
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="#top"><span class="mono">RY</span> Riny Yadav</a>
+    <button class="nav-toggle" aria-label="Menu" aria-expanded="false" id="navBtn"><span></span><span></span><span></span></button>
+    <nav class="nav-links" id="navLinks">
+      <a href="#about">About</a>
+      <a href="#work">Work</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+      <a class="btn btn-grad" href="#contact">Hire Me</a>
+    </nav>
   </div>
 </header>
 
-<!-- ABOUT TEASER -->
-<section class="wrap-wide">
-  <div class="sec-card reveal">
-    <div class="kicker">A bit about me</div>
-    <h2 class="sec-title">Design is how I think.<br><span class="alt">AI is how I scale it.</span></h2>
-    <div class="about-row">
-      <div class="ph"><img src="assets/profile.jpg" alt="Riny Yadav"></div>
-      <div>
-        <p>I'm a <b>UI/UX designer and AI product manager</b> at <b>Listen2it</b>, where I've designed three AI products end to end and now own the roadmap for part of them. My work spans web and mobile, from dashboards and editing workspaces to marketing sites and 500+ AI-generated avatars.</p>
-        <p>Design started for me as a love of aesthetics and a curiosity about how people interact with technology. It became something more useful: <b>the ability to stand between a complex AI system and a confused human, and make the two understand each other.</b></p>
-        <a class="btn-ink" href="#contact">More about how I work ↓</a>
+<main id="top">
+
+<!-- HERO -->
+<section class="hero" style="padding-top:84px">
+  <svg class="sticker" style="top:11%;left:7%;width:26px" viewBox="0 0 24 24" fill="#A78BFA"><path d="M12 2l2.6 6.4L21 11l-6.4 2.6L12 20l-2.6-6.4L3 11l6.4-2.6z"/></svg>
+  <svg class="sticker" style="top:26%;left:3%;width:19px" viewBox="0 0 24 24" fill="#F472B6"><path d="M13 2L4 14h6l-1 8 9-12h-6z"/></svg>
+  <svg class="sticker" style="top:8%;right:11%;width:22px" viewBox="0 0 24 24" fill="#93C5FD"><path d="M12 2l2.6 6.4L21 11l-6.4 2.6L12 20l-2.6-6.4L3 11l6.4-2.6z"/></svg>
+  <svg class="sticker" style="bottom:28%;right:5%;width:17px" viewBox="0 0 24 24" fill="#C4B5FD"><path d="M13 2L4 14h6l-1 8 9-12h-6z"/></svg>
+
+  <div class="wrap hero-in">
+    <div>
+      <span class="badge"><span class="dot"></span> Available for freelance work</span>
+      <p class="kicker">Hello, I'm</p>
+      <h1>Riny Yadav</h1>
+      <p class="role">UI/UX Designer &amp; <em>AI Product Manager</em></p>
+      <p class="lead">I design and ship AI products end to end — voice, avatars and video. Day to day that means owning the interface and the roadmap behind it: research and flows in Figma, specs and priorities with engineering, and shipping the result to real users.</p>
+      <div class="hero-cta">
+        <a class="btn btn-grad" href="#work">View My Work</a>
+        <a class="btn btn-ghost" href="#contact">Get In Touch</a>
+        <a class="btn btn-ghost" href="https://www.linkedin.com/in/riny-yadav-a24a90238/" target="_blank" rel="noopener">Résumé
+          <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
+        </a>
       </div>
     </div>
+    <div class="hero-art">
+      <div class="frame"><img src="img/hero.jpg" alt="Riny Yadav" width="1080" height="810"></div>
+    </div>
   </div>
+
+  <svg class="wave" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true">
+    <path fill="#ffffff" d="M0,64 C240,112 480,16 720,40 C960,64 1200,120 1440,88 L1440,120 L0,120 Z"/>
+  </svg>
 </section>
 
-<!-- PLAY -->
-<section class="wrap-wide" id="play">
-  <div class="sec-card reveal">
-    <div class="kicker">Play — selected work</div>
-    <h2 class="sec-title">Some recent work <span class="hand" style="font-size:1.4rem">(the shipped kind)</span></h2>
-
-    <div class="timeline">
-
-      <div class="titem reveal">
-        <div class="tyear">2025</div>
-        <h3><a href="case-voomo.html">Voomo — AI Video Platform</a></h3>
-        <p class="tdesc">Website and mobile app for an AI video platform going up against HeyGen and Colossyan. Script in, avatar video out, translated across 145+ languages. I designed the creation flow and produced the 500+ avatar library, setting framing and lighting rules first so it read as curated rather than generated. I also worked through Voomo Publisher's pitch — whether auto-generating video for long-tail articles pays for itself on pre-roll alone, and what that ceiling meant for pricing.</p>
-        <a class="shot" href="case-voomo.html"><img src="assets/voomo-hero.jpg" alt="Voomo AI video platform"></a>
-        <div class="tmeta"><span class="tagp">Product Design</span><span class="tagp">AI Video</span><span class="tagp">Product Strategy</span><div class="tlinks"><a class="tlink alt" href="https://www.voomo.ai/" target="_blank" rel="noopener">Live site ↗</a><a class="tlink" href="case-voomo.html">Read Case Study →</a></div></div>
+<!-- ABOUT -->
+<section id="about">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Get to know me</p>
+      <h2>About Me</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="about-grid">
+      <div class="card about-card">
+        <h3>A designer who owns the product, not just the screens</h3>
+        <p>I have around <span class="hl">4 years in product design</span>, the last two of them embedded at <span class="hl">Listen2It</span>, a text-to-speech and audio platform. I now split my time between <span class="hl-pink">UI/UX design and AI product management</span> — writing the brief, designing against it, and seeing it through to release.</p>
+        <p>Most of my work sits in a category that didn't have patterns yet: real-time avatar agents, voice studios, text-to-video. There is no library to borrow from, so the job is figuring out what the interface should even be — where an agent should live on screen, when to ask for a permission, what a user needs to see before they trust the output.</p>
+        <p>I build as well as design. Figma for the thinking, Cursor and Claude Code for turning it into something clickable. Getting to a working prototype quickly means decisions get settled by using the thing rather than arguing about a static frame.</p>
       </div>
-
-      <div class="titem reveal">
-        <div class="tyear">2024<br>– now</div>
-        <h3><a href="case-listen2it.html">Listen2it — TTS Platform</a></h3>
-        <p class="tdesc">The platform UI for a studio-grade audio product: multi-track workspace, voice cloning, pronunciation management and a catalogue of 1,400+ voices across 84 base languages. In 2025–26 I rebuilt the marketing site end to end — homepage, pricing, every feature page — then turned it into a system, including one language-page template that holds up across roughly 155 pages, built to migrate off Webflow into Strapi.</p>
-        <a class="shot" href="case-listen2it.html"><img src="assets/listen2it-2026.jpg" alt="Listen2it — the redesigned AI audio suite"></a>
-        <div class="tmeta"><span class="tagp">Platform UI</span><span class="tagp">TTS / Audio</span><span class="tagp">Design System</span><div class="tlinks"><a class="tlink alt" href="https://www.getlisten2it.com/" target="_blank" rel="noopener">Live site ↗</a><a class="tlink" href="case-listen2it.html">Read Case Study →</a></div></div>
-      </div>
-
-      <div class="titem reveal">
-        <div class="tyear">2024<br>–25</div>
-        <h3><a href="case-avatario.html">Avatario — Real-Time AI Avatars</a></h3>
-        <p class="tdesc">Product UI and onboarding strategy for real-time AI agents that see, hear and respond like humans. The structural problem: Aria, the floating avatar guide, sits on top of the interface she's explaining, so both compete for the same pixels. I split it into three layers — intent capture before the workspace loads, a sidebar rail carrying progress out of the overlay, and Aria as support on demand. Same call on Chrome's screen-share prompt, which fired before anyone knew why.</p>
-        <a class="shot" href="case-avatario.html"><img src="assets/avatario-hero.jpg" alt="Avatario real-time AI avatars"></a>
-        <div class="tmeta"><span class="tagp">Agent UX</span><span class="tagp">Real-Time AI</span><span class="tagp">Onboarding</span><div class="tlinks"><a class="tlink alt" href="https://www.avatario.ai/" target="_blank" rel="noopener">Live site ↗</a><a class="tlink" href="case-avatario.html">Read Case Study →</a></div></div>
-      </div>
-
-      <div class="titem reveal">
-        <div class="tyear">Fun<br>stuff</div>
-        <h3>Explorations & side quests</h3>
-        <p class="tdesc">A portfolio site for a graphic designer, mobile UI concepts and a steady stream of interface experiments — the playground where I test ideas before they reach production.</p>
-        <div class="mini-grid">
-          <a class="shot" href="https://strcoder4007.github.io/graphic-designer-portfolio/" target="_blank" rel="noopener"><img src="assets/graphic-portfolio.jpg" alt="Graphic designer portfolio"></a>
-          <a class="shot" href="https://www.behance.net/rinyyadav" target="_blank" rel="noopener"><img src="assets/mobile-ui.jpg" alt="Mobile UI explorations"></a>
+      <div class="caps">
+        <div class="cap">
+          <span class="cap-ic"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 9h18M9 21V9"/></svg></span>
+          <div><b>Product Design</b><span>Flows, interaction design, design systems</span></div>
         </div>
-        <div class="tmeta"><span class="tagp">Web</span><span class="tagp">Mobile</span><span class="tagp">Visual</span><div class="tlinks"><a class="tlink" href="https://www.behance.net/rinyyadav" target="_blank" rel="noopener">More on Behance →</a></div></div>
+        <div class="cap">
+          <span class="cap-ic"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 3l2.2 5.6L20 11l-5.8 2.4L12 19l-2.2-5.6L4 11l5.8-2.4z"/></svg></span>
+          <div><b>AI Product</b><span>Agent UX, roadmap, specs, release QA</span></div>
+        </div>
+        <div class="cap">
+          <span class="cap-ic"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h10M4 17h7"/></svg></span>
+          <div><b>Research</b><span>Competitor teardowns, content audits, usability</span></div>
+        </div>
+        <div class="cap">
+          <span class="cap-ic"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M8 18l-5-6 5-6M16 6l5 6-5 6"/></svg></span>
+          <div><b>Design to Code</b><span>Figma, Cursor, Claude Code, Webflow, Strapi</span></div>
+        </div>
       </div>
-
     </div>
   </div>
 </section>
 
-<!-- PROCESS -->
-<section class="wrap-wide" id="about">
-  <div class="sec-card reveal">
-    <div class="kicker">About — how I work</div>
-    <h2 class="sec-title">A process built for <span class="alt">AI-speed products</span></h2>
-    <div class="proc-grid">
-      <div class="pstep reveal d1"><div class="pnum">01</div><h3>Understand</h3><p>Competitive teardowns, user workflows and the honest question: what does the model actually do well?</p></div>
-      <div class="pstep reveal d1"><div class="pnum">02</div><h3>Define the fast path</h3><p>Every product gets one obvious primary action. Depth and power-user tools unfold progressively.</p></div>
-      <div class="pstep reveal d2"><div class="pnum">03</div><h3>Design with AI</h3><p>Midjourney, Runway and agents are part of my toolchain — for assets, variants and testing ideas at volume.</p></div>
-      <div class="pstep reveal d3"><div class="pnum">04</div><h3>Ship & refine</h3><p>Close collaboration with engineering, real-user feedback, and relentless iteration after launch.</p></div>
+<!-- WORK -->
+<section id="work" class="tint">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">My Creative Work</p>
+      <h2>Case Studies</h2>
+      <div class="rule"></div>
     </div>
-    <p class="proc-note">Toolkit: <b>Figma · Adobe XD · Sketch · Framer · After Effects</b> for craft · <b>Midjourney · Veo 3 · Runway ML · ChatGPT · AI Agents</b> for scale · <b>strategy, roadmapping & agile</b> from my product management side.</p>
+
+    <div class="studies">
+
+      <!-- 1 -->
+      <article class="study">
+        <div class="study-media">
+          <img src="img/listen2it-hero.jpg" alt="Listen2It marketing site homepage" loading="lazy">
+          <span class="chip">Design System</span>
+        </div>
+        <div class="study-body">
+          <h3>Listen2It — Marketing Site &amp; Page System</h3>
+          <p class="where">Product Designer · Listen2It · 2025–26</p>
+          <p>Redesigned Listen2It's marketing site end to end — homepage, pricing, and the full set of feature pages — then turned it into a system the team could extend without me. The design language is deliberately split: a bold, saturated homepage, and quieter, minimal inner pages that let the product do the talking. The hero had to carry a widened story too, from text-to-speech alone to voiceover, dubbing, music and sound effects in one studio.</p>
+          <p>The harder half was scale. A catalogue of 1,400+ voices across 84 base languages needs a page per language, so I designed one template that holds up across roughly 155 of them, plus use-case landing pages for presentation voiceover, video voiceover and audiobook narration. Components were drawn to migrate cleanly into Strapi as the site moved off Webflow.</p>
+          <div class="tags"><span class="tag">Design System</span><span class="tag">Marketing Site</span><span class="tag">Templates at Scale</span><span class="tag">Strapi</span></div>
+          <a class="btn btn-grad" href="https://www.getlisten2it.com/" target="_blank" rel="noopener">View Live Site
+            <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+        </div>
+      </article>
+
+      <!-- 2 -->
+      <article class="study">
+        <div class="study-media">
+          <img src="img/listen2it-studio.jpg" alt="Listen2It voice studio interface" loading="lazy">
+          <span class="chip">Dashboard</span>
+        </div>
+        <div class="study-body">
+          <h3>Listen2It Dashboard — AI Voice Studio</h3>
+          <p class="where">Product Designer · Listen2It</p>
+          <p>Design work across the app itself: the multi-track studio, the composer workflow, voice cloning and voiceover generation. The dashboard homepage was the main shift — Voice Cloning, AI Voiceovers and Generate Music were real capabilities buried behind navigation, so I pulled them up as first-class entry points people land on rather than go looking for.</p>
+          <p>I also ran QA on the staging build after the redesign, covering generation, composer, cloning and export paths, and wrote the structured test prompts the team now reuses for those passes. On the embed side, I compared BotTalk, BeyondWords, Trinity Audio and ElevenLabs Audio Native and argued for a Web Component with Shadow DOM over an iframe, so a publisher's player inherits their styling without leaking scope either direction.</p>
+          <div class="tags"><span class="tag">Dashboard UX</span><span class="tag">TTS</span><span class="tag">Voice Cloning</span><span class="tag">Release QA</span></div>
+          <a class="btn btn-grad" href="https://app.getlisten2it.com/" target="_blank" rel="noopener">View Live Site
+            <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+        </div>
+      </article>
+
+      <!-- 3 -->
+      <article class="study">
+        <div class="study-media">
+          <img src="img/avatario.jpg" alt="Avatario real-time AI avatar product" loading="lazy">
+          <span class="chip">UX Strategy</span>
+        </div>
+        <div class="study-body">
+          <h3>Avatario — Real-Time AI Avatar Agent</h3>
+          <p class="where">UX Strategy · Avatario</p>
+          <p>Avatario puts a live avatar agent, Aria, into your product. Onboarding had a structural problem: Aria floats on top of the interface she is explaining, so the guidance and the thing being explained compete for the same pixels. Users either dismissed her or lost the screen underneath.</p>
+          <p>I restructured it into three layers — an intent-capture screen before the workspace loads, a persistent sidebar rail that carries progress out of the overlay, and Aria repositioned as support on demand rather than a guide you have to sit through. I made a similar call on Chrome's screen-share prompt, which was firing before anyone knew why it was needed; it became an inline button at the moment of use. I'm now designing agent templates for the Create Agent flow.</p>
+          <div class="tags"><span class="tag">Agent UX</span><span class="tag">Onboarding</span><span class="tag">Permissions</span><span class="tag">Real-Time AI</span></div>
+          <a class="btn btn-grad" href="https://www.avatario.ai/" target="_blank" rel="noopener">View Live Site
+            <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+        </div>
+      </article>
+
+      <!-- 4 -->
+      <article class="study">
+        <div class="study-media">
+          <img src="img/voomo-platform.jpg" alt="Voomo AI video generation platform" loading="lazy">
+          <span class="chip">AI Video</span>
+        </div>
+        <div class="study-body">
+          <h3>Voomo — AI Video Generation Platform</h3>
+          <p class="where">Product Designer · Voomo</p>
+          <p>Voomo turns a script into video with AI avatars and voice, and translates it across 145+ languages. I worked on the generation surfaces — picking an avatar, choosing a voice, getting from text to a first usable cut without the interface demanding that you already understand how any of it works.</p>
+          <p>Alongside the UI I helped think through Voomo Publisher's pitch: whether auto-generating video for long-tail articles actually pays for itself on pre-roll advertising. The arithmetic set a real ceiling on what the product could promise publishers, and it changed how we framed and priced it.</p>
+          <div class="tags"><span class="tag">Text to Video</span><span class="tag">AI Avatars</span><span class="tag">Product Strategy</span></div>
+          <a class="btn btn-grad" href="https://www.voomo.ai/" target="_blank" rel="noopener">View Live Site
+            <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+        </div>
+      </article>
+
+    </div>
+
+    <div class="more-head"><h3>More work</h3><span class="line"></span></div>
+    <div class="more">
+      <a class="mini" href="https://www.voomo.ai/" target="_blank" rel="noopener">
+        <div class="mini-media"><img src="img/voomo-site.jpg" alt="Voomo marketing website" loading="lazy"></div>
+        <div class="mini-body">
+          <h4>Voomo Website</h4>
+          <p>The marketing site for Voomo — an avatar gallery you can browse before signing up, so the product proves itself above the fold.</p>
+          <span class="golink">View live site <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
+        </div>
+      </a>
+      <a class="mini" href="https://strcoder4007.github.io/graphic-designer-portfolio/" target="_blank" rel="noopener">
+        <div class="mini-media"><img src="img/portfolio.jpg" alt="Designer portfolio site" loading="lazy"></div>
+        <div class="mini-body">
+          <h4>Designer Portfolio</h4>
+          <p>An earlier portfolio build — coral palette, single-scroll narrative, designed and shipped to code end to end.</p>
+          <span class="golink">View live site <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
+        </div>
+      </a>
+      <a class="mini" href="https://www.behance.net/rinyyadav" target="_blank" rel="noopener">
+        <div class="mini-media"><img src="img/ui-interfaces.jpg" alt="Mobile and desktop interface studies" loading="lazy"></div>
+        <div class="mini-body">
+          <h4>Mobile &amp; Interface Studies</h4>
+          <p>A subscription manager concept — brand discovery, shared group plans, and a dark card-led hierarchy carried from phone to desktop.</p>
+          <span class="golink">View on Behance <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
+        </div>
+      </a>
+    </div>
   </div>
 </section>
 
-<!-- WRITING -->
-<section class="wrap-wide">
-  <div class="sec-card reveal">
-    <div class="kicker">Writing & insights</div>
-    <h2 class="sec-title">Things I've learned <span class="alt">designing with machines</span></h2>
-    <div class="wgrid">
-      <a class="wcard reveal d1" href="https://www.linkedin.com/in/riny-yadav-a24a90238/recent-activity/all/" target="_blank" rel="noopener">
-        <div class="wtag">AI × Design</div>
-        <h3>Agent AI vs Generative AI — a designer's cheat sheet</h3>
-        <p>One creates, one acts. Knowing the difference changes how you design the interface around it.</p>
-        <span class="go">Read on LinkedIn →</span>
-      </a>
-      <a class="wcard reveal d2" href="https://www.linkedin.com/in/riny-yadav-a24a90238/recent-activity/all/" target="_blank" rel="noopener">
-        <div class="wtag">Craft</div>
-        <h3>What 500 synthetic avatars taught me about consistency</h3>
-        <p>Generating at scale without rules gives you a mess. Define framing, lighting and expression first.</p>
-        <span class="go">Read on LinkedIn →</span>
-      </a>
-      <a class="wcard reveal d2" href="https://www.linkedin.com/in/riny-yadav-a24a90238/recent-activity/all/" target="_blank" rel="noopener">
-        <div class="wtag">UX</div>
-        <h3>Designing TTS for 145 languages without losing your mind</h3>
-        <p>Voice selection is casting, not configuration. Treat it like the emotional core of the product.</p>
-        <span class="go">Read on LinkedIn →</span>
-      </a>
-      <a class="wcard reveal d3" href="https://www.linkedin.com/in/riny-yadav-a24a90238/recent-activity/all/" target="_blank" rel="noopener">
-        <div class="wtag">Real-time AI</div>
-        <h3>Latency is a design problem, not just an engineering one</h3>
-        <p>In live AI conversation, silence without feedback reads as failure. Design the waiting.</p>
-        <span class="go">Read on LinkedIn →</span>
-      </a>
+<!-- SKILLS -->
+<section id="skills">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">My Toolkit</p>
+      <h2>Skills &amp; Tools</h2>
+      <div class="rule"></div>
     </div>
-
-    <div class="letter-wrap">
-      <div class="letter reveal">
-        Hi there,<br><br>
-        I enjoy products that put a little magic into everyday life — the kind that make people smile mid-task.<br><br>
-        I wear different hats to ship the best product: designer, AI tinkerer, product thinker. I don't like being limited to "Designer" — I'm a builder of experiences :)<br><br>
-        If that sounds like your team, let's chat.<br><br>
-        Thanks for reading this.<br>
-        — Riny
-        <span class="doodle">have a nice day ✿</span>
+    <div class="skills">
+      <div class="card skillcard">
+        <h4>Design</h4>
+        <div class="pills"><span class="pill">Figma</span><span class="pill">Design Systems</span><span class="pill">Prototyping</span><span class="pill">Interaction Design</span><span class="pill">Framer</span><span class="pill">After Effects</span></div>
       </div>
-      <div class="letter-side"><span class="arr">←</span>a letter,<br>for you.</div>
+      <div class="card skillcard">
+        <h4>AI &amp; Product</h4>
+        <div class="pills"><span class="pill">Agent UX</span><span class="pill">Roadmap &amp; Specs</span><span class="pill">TTS / Voice</span><span class="pill">Text to Video</span><span class="pill">Midjourney</span><span class="pill">Runway</span></div>
+      </div>
+      <div class="card skillcard">
+        <h4>Build</h4>
+        <div class="pills"><span class="pill">Cursor</span><span class="pill">Claude Code</span><span class="pill">HTML / CSS</span><span class="pill">Webflow</span><span class="pill">Strapi</span><span class="pill">Jira</span></div>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- CONTACT -->
-<section class="wrap-wide" id="contact">
-  <div class="sec-card reveal">
-    <div class="kicker">Contact</div>
-    <h2 class="sec-title">Let's build something <span class="alt">people understand.</span></h2>
-    <p style="max-width:560px">Have a project in mind, or a startup that needs a designer who speaks AI? My inbox is always open — and I reply fast.</p>
-    <div class="connect-btns">
-      <a class="btn-ink" href="https://www.linkedin.com/in/riny-yadav-a24a90238/" target="_blank" rel="noopener">in&nbsp; LinkedIn</a>
-      <a class="btn-ink" href="https://www.behance.net/rinyyadav" target="_blank" rel="noopener">Bē&nbsp; Behance</a>
-      <a class="btn-soft" href="mailto:workwithriny@gmail.com">✉️ Email Me</a>
-      <button class="btn-soft" id="copyEmail" style="border:none;cursor:pointer;font-family:'Manrope'">⧉ Copy My Email</button>
+<section id="contact" class="tint">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Get In Touch</p>
+      <h2>Let's Work Together</h2>
+      <div class="rule"></div>
+      <p style="margin-top:16px">Have something in mind? Tell me what you're building and where it's stuck.</p>
     </div>
-    <p class="note">📍 Gurugram, Haryana, India · Open to freelance projects, collaborations & full-time roles</p>
+    <div class="contact-grid">
+      <form class="card form" id="contactForm">
+        <div class="field"><label for="n">Name</label><input id="n" name="name" type="text" required placeholder="Your name"></div>
+        <div class="field"><label for="e">Email</label><input id="e" name="email" type="email" required placeholder="you@company.com"></div>
+        <div class="field"><label for="m">Message</label><textarea id="m" name="message" required placeholder="A line or two about the project, timeline and scope."></textarea></div>
+        <button class="btn btn-grad" type="submit" style="width:100%">Send Message</button>
+        <p style="font-size:.84rem;color:var(--muted);margin:12px 0 0;text-align:center">Opens in your mail app, addressed to Riny.</p>
+      </form>
+      <div class="card info">
+        <h4>Contact Info</h4>
+        <div class="row">
+          <span class="cap-ic"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3 7l9 6 9-6"/></svg></span>
+          <div><b>Email</b><a href="mailto:workwithriny@gmail.com">workwithriny@gmail.com</a></div>
+        </div>
+        <div class="row">
+          <span class="cap-ic"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s7-6.2 7-11a7 7 0 10-14 0c0 4.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></span>
+          <div><b>Location</b><span>Gurgaon, Haryana, India</span></div>
+        </div>
+        <div class="socials">
+          <a href="https://www.linkedin.com/in/riny-yadav-a24a90238/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://www.behance.net/rinyyadav" target="_blank" rel="noopener">Behance</a>
+          <a href="https://workwithriny.github.io/" target="_blank" rel="noopener">Portfolio</a>
+          <a href="mailto:workwithriny@gmail.com">Email</a>
+        </div>
+        <div class="avail">
+          <b><span class="dot"></span> Available for work</b>
+          <span>Open to freelance projects and collaborations.</span>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- FOOTER -->
-<div class="wrap-wide">
-  <div class="footer-card reveal">
-    <div class="fgrid">
-      <div>
-        <h4>Riny Yadav</h4>
-        <p style="font-size:.92rem">UI/UX Designer & AI Product Manager.<br>Making complex things feel simple.</p>
-        <p class="hand" style="font-size:1.3rem;margin-top:10px">made with ☕ & a lot of Figma</p>
-      </div>
-      <div>
-        <h4>Navigation</h4>
-        <a href="#home">Home</a>
-        <a href="#play">Play</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-      </div>
-      <div>
-        <h4>Case studies</h4>
-        <a href="case-voomo.html">Voomo — AI Video</a>
-        <a href="case-listen2it.html">Listen2it — TTS</a>
-        <a href="case-avatario.html">Avatario — AI Avatars</a>
-        <a href="mailto:workwithriny@gmail.com">workwithriny@gmail.com</a>
-      </div>
-    </div>
-  </div>
-  <div class="copyright">© <span id="year"></span> Riny Yadav. Designed with intention (and a few happy accidents).</div>
-</div>
+</main>
 
-<div class="toast" id="toast">Email copied! ✦ workwithriny@gmail.com</div>
+<footer>
+  <div class="wrap foot">
+    <a class="brand" href="#top"><span class="mono">RY</span> Riny Yadav</a>
+    <nav class="foot-links">
+      <a href="#about">About</a><a href="#work">Work</a><a href="#skills">Skills</a><a href="#contact">Contact</a>
+    </nav>
+    <div class="copy">© 2026 Riny Yadav. All rights reserved.</div>
+  </div>
+</footer>
 
 <script>
-const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('show');io.unobserve(e.target)}}),{threshold:.08});
-document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-
-const mb=document.getElementById('menuBtn'),pl=document.getElementById('pills');
-mb.addEventListener('click',()=>pl.classList.toggle('open'));
-pl.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>pl.classList.remove('open')));
-
-const ids=['home','play','about','contact'];
-const links=[...pl.querySelectorAll('a')];
-addEventListener('scroll',()=>{
-  const y=scrollY+220;
-  let cur='home';
-  ids.forEach(id=>{const el=document.getElementById(id);if(el&&el.offsetTop<=y)cur=id});
-  links.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+cur));
-},{passive:true});
-
-document.getElementById('copyEmail').addEventListener('click',async()=>{
-  try{await navigator.clipboard.writeText('workwithriny@gmail.com')}catch(e){
-    const t=document.createElement('textarea');t.value='workwithriny@gmail.com';document.body.appendChild(t);t.select();document.execCommand('copy');t.remove();
-  }
-  const ts=document.getElementById('toast');ts.classList.add('show');
-  setTimeout(()=>ts.classList.remove('show'),2200);
-});
-
-document.getElementById('year').textContent=new Date().getFullYear();
+(function(){
+  var btn=document.getElementById('navBtn'), links=document.getElementById('navLinks');
+  btn.addEventListener('click',function(){
+    var open=links.classList.toggle('open');
+    btn.setAttribute('aria-expanded',open?'true':'false');
+  });
+  links.addEventListener('click',function(e){
+    if(e.target.tagName==='A'){links.classList.remove('open');btn.setAttribute('aria-expanded','false');}
+  });
+  document.getElementById('contactForm').addEventListener('submit',function(e){
+    e.preventDefault();
+    var f=e.target;
+    var subject='Project enquiry from '+f.name.value;
+    var body=f.message.value+'\n\n—\n'+f.name.value+'\n'+f.email.value;
+    window.location.href='mailto:workwithriny@gmail.com?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
+  });
+})();
 </script>
 </body>
 </html>
