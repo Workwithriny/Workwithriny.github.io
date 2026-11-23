@@ -13,7 +13,7 @@
 
 <nav class="navbar">
   <div class="nav-in">
-    <a class="brand" href="index.html"><img class="face" src="assets/profile.png" alt="Riny">Riny Yadav</a>
+    <a class="brand" href="index.html"><img class="face" src="assets/profile.jpg" alt="Riny">Riny Yadav</a>
     <ul class="pills">
       <li><a href="index.html">Home</a></li>
       <li><a href="index.html#play" class="active">Play</a></li>
@@ -27,14 +27,14 @@
 <div class="wrap case-hero">
   <div class="crumb"><a href="index.html#play">← Back to all work</a> &nbsp;/&nbsp; Case Study</div>
   <h1>Listen2it — a studio-grade voice platform anyone can use</h1>
-  <p class="lede">Designing the entire user interface for a realistic text-to-speech platform — every workflow from project creation to audio export, across 145+ languages.</p>
+  <p class="lede">Designing the entire user interface for a realistic text-to-speech platform — every workflow from project creation to audio export, across a catalogue of 1,400+ voices in 84 base languages.</p>
   <div class="meta-row">
-    <div><div class="lbl">Role</div><div class="val">UI Designer (full-time)</div></div>
+    <div><div class="lbl">Role</div><div class="val">UI/UX Designer & AI Product Manager</div></div>
     <div><div class="lbl">Timeline</div><div class="val">Aug 2024 – Present</div></div>
     <div><div class="lbl">Platform</div><div class="val">Web App + Website</div></div>
     <div><div class="lbl">Company</div><div class="val">Listen2it</div></div>
   </div>
-  <p style="margin-top:20px"><a class="btn-ink" href="https://www.getlisten2it.com/" target="_blank" rel="noopener">Visit getlisten2it.com ↗</a> &nbsp; <a class="btn-soft" href="https://dashboard.getlisten2it.com/" target="_blank" rel="noopener">Open the live dashboard ↗</a></p>
+  <p style="margin-top:20px"><a class="btn-ink" href="https://www.getlisten2it.com/" target="_blank" rel="noopener">Visit getlisten2it.com ↗</a> &nbsp; <a class="btn-soft" href="https://app.getlisten2it.com/" target="_blank" rel="noopener">Open the live dashboard ↗</a></p>
 </div>
 
 <div class="wrap">
@@ -43,7 +43,7 @@
   <div class="case-sec reveal">
     <h2><span class="n">01</span>The challenge</h2>
     <p>Listen2it generates lifelike text-to-speech audio with studio-grade editing — previewing, exporting, hosting and streaming, all in one place. Its users range from podcasters and publishers to developers wiring up the API.</p>
-    <p>That range was the problem. A pro audio tool and a one-click article-to-audio converter usually need <b>opposite interfaces</b>. The platform needed both, without splitting into two products — and it had to stay usable while supporting <b>145+ languages, voice cloning and custom pronunciation</b>.</p>
+    <p>That range was the problem. A pro audio tool and a one-click article-to-audio converter usually need <b>opposite interfaces</b>. The platform needed both, without splitting into two products — and it had to stay usable while supporting <b>1,400+ voices across 84 base languages, voice cloning and custom pronunciation</b>.</p>
     <div class="pull">"Podcasters want a timeline. Publishers want a button. The same product had to feel obvious to both."</div>
   </div>
 
@@ -53,9 +53,11 @@
       <li><b>Complete platform UI</b> — every user workflow from project creation to audio export, designed end to end.</li>
       <li><b>Information architecture</b> — the main dashboard organized into Projects, Audio Articles, Analytics, Integration and Audio Player management.</li>
       <li><b>Editing workspace</b> — timeline controls, multi-track audio management and real-time preview with professional-grade tools.</li>
-      <li><b>Voice selection UX</b> — a searchable library across 145+ languages with gender & style filtering, plus voice cloning flows.</li>
+      <li><b>Voice selection UX</b> — a searchable library across 84 base languages with gender & style filtering, plus voice cloning flows.</li>
       <li><b>Supporting systems</b> — analytics dashboard, export management with folder structure, sharing, and a custom pronunciation manager.</li>
-      <li><b>Website</b> — new landing pages and layouts to improve onboarding and product comprehension.</li>
+      <li><b>Website &amp; page system (2025–26)</b> — rebuilt the marketing site end to end: homepage, pricing and every feature page, plus use-case landing pages for presentation voiceover, video voiceover and audiobook narration.</li>
+      <li><b>Templates at scale</b> — one language-page template that holds up across roughly 155 SEO pages, with components drawn to migrate cleanly into Strapi as the site moved off Webflow.</li>
+      <li><b>Release QA</b> — structured testing passes on staging after the redesign, covering generation, composer, cloning and export paths, and the reusable test prompts behind them.</li>
     </ul>
   </div>
 
@@ -63,6 +65,8 @@
     <h2><span class="n">03</span>Process & key decisions</h2>
     <p><b>Two speeds, one interface.</b> I designed the workspace in layers: a "fast path" where pasting text and picking a voice produces audio in three clicks, and a "deep path" where the timeline, multi-track controls and pronunciation tuning unfold for power users. The fast path is the default; depth is opt-in.</p>
     <p><b>Voice selection as the hero moment.</b> Choosing a voice is the product's emotional core, so it got the most design attention: instant previews, language and style filters, and side-by-side comparison — closer to picking a cast member than configuring a setting.</p>
+    <p><b>A site that splits its personality on purpose.</b> The homepage is bold and saturated; every inner page is quiet and minimal. That split is deliberate — the homepage has to make a claim, the feature pages have to get out of the way of the product. Holding the line took a documented system rather than taste, so the team can extend it without me.</p>
+    <p><b>Shadow DOM over iframes for the embed player.</b> Comparing BotTalk, BeyondWords, Trinity Audio and ElevenLabs Audio Native, the iframe approach kept breaking publisher styling. I argued for a Web Component with Shadow DOM instead, so a publisher's player inherits their type and color without leaking scope in either direction.</p>
     <p><b>Pronunciation as a first-class feature.</b> Specialized terms break TTS immersion instantly. The custom pronunciation manager lets users fix a word once and have it apply everywhere — a small interface with outsized impact on perceived quality.</p>
     <figure class="case-img"><img src="assets/listen2it-dashboard.jpg" alt="Listen2it dashboard"><figcaption>The dashboard — voiceovers, voice cloning, audio articles, music and sound effects in one organized home.</figcaption></figure>
   </div>
@@ -70,7 +74,7 @@
   <div class="case-sec reveal">
     <h2><span class="n">04</span>Outcome</h2>
     <div class="outcome">
-      <div class="oc"><div class="big">145+</div><div class="sm">languages with searchable, filterable voices</div></div>
+      <div class="oc"><div class="big">1,400+</div><div class="sm">voices across 84 base languages, searchable and filterable</div></div>
       <div class="oc"><div class="big">1 workspace</div><div class="sm">creation, editing, hosting & streaming unified</div></div>
       <div class="oc"><div class="big">4 personas</div><div class="sm">voice-over, podcast, audio articles & API — each with a streamlined flow</div></div>
     </div>

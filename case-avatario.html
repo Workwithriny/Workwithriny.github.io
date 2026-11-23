@@ -13,7 +13,7 @@
 
 <nav class="navbar">
   <div class="nav-in">
-    <a class="brand" href="index.html"><img class="face" src="assets/profile.png" alt="Riny">Riny Yadav</a>
+    <a class="brand" href="index.html"><img class="face" src="assets/profile.jpg" alt="Riny">Riny Yadav</a>
     <ul class="pills">
       <li><a href="index.html">Home</a></li>
       <li><a href="index.html#play" class="active">Play</a></li>
@@ -34,7 +34,7 @@
     <div><div class="lbl">Platform</div><div class="val">Web App</div></div>
     <div><div class="lbl">Company</div><div class="val">Listen2it (Avatario)</div></div>
   </div>
-  <p style="margin-top:20px"><a class="btn-ink" href="https://avatario.ai/" target="_blank" rel="noopener">Visit avatario.ai ↗</a></p>
+  <p style="margin-top:20px"><a class="btn-ink" href="https://www.avatario.ai/" target="_blank" rel="noopener">Visit avatario.ai ↗</a></p>
 </div>
 
 <div class="wrap">
@@ -53,6 +53,8 @@
       <li><b>Product UI</b> — designed the dashboard and core experience for the Avatario platform as part of the Listen2it product family.</li>
       <li><b>Avatar experience</b> — the selection carousel, live demo flow ("click Connect to start your conversation") and in-call interface.</li>
       <li><b>Synthetic avatar production</b> — applied the AI generation pipeline I built for Voomo (Midjourney, Runway ML, Freepik) to produce consistent, professional avatar imagery.</li>
+      <li><b>Onboarding UX strategy</b> — restructuring first-run so the avatar guide and the interface she explains stop competing for the same screen.</li>
+      <li><b>Agent templates</b> — currently designing the template layer for the Create Agent flow, so a new agent starts from a working shape instead of an empty form.</li>
       <li><b>Trust-building details</b> — onboarding cues, status indicators and graceful loading states that keep a real-time AI conversation feeling stable.</li>
     </ul>
   </div>
@@ -61,6 +63,8 @@
     <h2><span class="n">03</span>Process & key decisions</h2>
     <p><b>Demo before signup.</b> The strongest argument for a real-time avatar is talking to one. We placed a live, interactive avatar directly on the homepage — no account, no friction. The product demos itself in the first ten seconds.</p>
     <p><b>Professional, not perfect.</b> Avatar imagery deliberately uses business-like framing and natural expressions rather than chasing photorealistic perfection — sidestepping the uncanny valley by setting the right expectation: this is a professional digital assistant, not a fake human.</p>
+    <p><b>Three layers, because the guide was covering the lesson.</b> Aria floats on top of the product she is teaching, so guidance and subject fought for the same pixels — users dismissed her or lost the screen underneath. I split onboarding into an intent-capture screen before the workspace loads, a persistent sidebar rail that carries progress out of the overlay, and Aria repositioned as support on demand rather than a guide you sit through.</p>
+    <p><b>Ask for the permission at the moment it makes sense.</b> Chrome's screen-share prompt was firing before anyone understood why it was needed, and a cold permission dialog is the fastest way to lose someone in their first minute. It became an inline button at the point of use, where the reason is self-evident.</p>
     <p><b>Designing the waiting.</b> Real-time AI has latency. Connection states, "thinking" cues and conversational pacing were designed as carefully as the happy path, because in live conversation, silence without feedback reads as failure.</p>
     <div class="duo">
       <figure class="case-img"><img src="assets/avatario.jpg" alt="Avatario dashboard design"><figcaption>The platform workspace — managing avatars, agents and conversations.</figcaption></figure>
