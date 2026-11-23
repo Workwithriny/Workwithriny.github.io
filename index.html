@@ -230,8 +230,8 @@ footer{background:linear-gradient(180deg,#F7F1FF,#F1F5FF); border-top:1px solid 
       <div class="hero-cta">
         <a class="btn btn-grad" href="#work">View My Work</a>
         <a class="btn btn-ghost" href="#contact">Get In Touch</a>
-        <a class="btn btn-ghost" href="https://www.linkedin.com/in/riny-yadav-a24a90238/" target="_blank" rel="noopener">Résumé
-          <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
+        <a class="btn btn-ghost" id="resumeBtn" href="resume.pdf" target="_blank" rel="noopener">Résumé
+          <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0l-4.5-4.5M12 15l4.5-4.5M4 20h16"/></svg>
         </a>
       </div>
     </div>
@@ -256,7 +256,7 @@ footer{background:linear-gradient(180deg,#F7F1FF,#F1F5FF); border-top:1px solid 
     <div class="about-grid">
       <div class="card about-card">
         <h3>A designer who owns the product, not just the screens</h3>
-        <p>I have around <span class="hl">4 years in product design</span>, the last two of them embedded at <span class="hl">Listen2It</span>, a text-to-speech and audio platform. I now split my time between <span class="hl-pink">UI/UX design and AI product management</span> — writing the brief, designing against it, and seeing it through to release.</p>
+        <p>I have <span class="hl">2 years designing AI products</span> across a multi-product SaaS suite, leading design end to end at <span class="hl">Listen2It</span> since May 2024. I now split my time between <span class="hl-pink">UI/UX design and AI product management</span> — writing the brief, designing against it, and seeing it through to release.</p>
         <p>Most of my work sits in a category that didn't have patterns yet: real-time avatar agents, voice studios, text-to-video. There is no library to borrow from, so the job is figuring out what the interface should even be — where an agent should live on screen, when to ask for a permission, what a user needs to see before they trust the output.</p>
         <p>I build as well as design. Figma for the thinking, Cursor and Claude Code for turning it into something clickable. Getting to a working prototype quickly means decisions get settled by using the thing rather than arguing about a static frame.</p>
       </div>
@@ -482,6 +482,26 @@ footer{background:linear-gradient(180deg,#F7F1FF,#F1F5FF); border-top:1px solid 
   links.addEventListener('click',function(e){
     if(e.target.tagName==='A'){links.classList.remove('open');btn.setAttribute('aria-expanded','false');}
   });
+  // Résumé: use the host's download flow when the page runs as a published
+  // artifact; fall back to opening the PDF (which is what happens on any
+  // ordinary web host, where window.claude does not exist).
+  var rb=document.getElementById('resumeBtn');
+  if(rb) rb.addEventListener('click',async function(ev){
+    if(!(window.claude&&typeof window.claude.use==='function')) return; // plain link
+    ev.preventDefault();
+    var dl=null;
+    try{dl=await window.claude.use('downloads');}catch(_){}
+    if(!dl){window.open(rb.href,'_blank','noopener');return;}
+    try{
+      var res=await fetch(rb.getAttribute('href'));
+      if(!res.ok) throw new Error('fetch failed');
+      await dl.save({filename:'Riny-Yadav-Resume.pdf',data:await res.blob()});
+    }catch(err){
+      if(err&&err.code==='declined') return;
+      window.open(rb.href,'_blank','noopener');
+    }
+  });
+
   document.getElementById('contactForm').addEventListener('submit',function(e){
     e.preventDefault();
     var f=e.target;
